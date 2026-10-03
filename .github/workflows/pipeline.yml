@@ -75,7 +75,7 @@ jobs:
           echo "Token-Länge: ${#DEPLOY_TOKEN}"
       - name: Release erstellen
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           gh release create "v1.0.${{ github.run_number }}" \
             --repo "$GITHUB_REPOSITORY" \
