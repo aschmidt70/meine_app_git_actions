@@ -42,8 +42,8 @@ jobs:
       - name: Paket bauen
         run: |
           mkdir -p build
-          python -m zipfile -c build/app.zip src/ \
-          -x '*/__pycache__/*' '*.pyc' '*.pyo'
+          zip -r build/app.zip src/ \
+            -x '*/__pycache__/*' '*.pyc' '*.pyo'
       - name: Paket hochladen
         uses: actions/upload-artifact@v4
         with:
