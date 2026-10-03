@@ -78,6 +78,8 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           gh release create "v1.0.${{ github.run_number }}" \
+            --repo "$GITHUB_REPOSITORY" \
+            --target "$GITHUB_SHA" \
             --title "Version 1.0.${{ github.run_number }}" \
             --notes "Automatisches Deployment aus GitHub Actions" \
             build/app.zip
